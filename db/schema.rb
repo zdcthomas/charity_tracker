@@ -10,16 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_19_221806) do
+ActiveRecord::Schema.define(version: 2018_05_20_021453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_donations_on_organization_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.integer "score"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_reviews_on_organization_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,4 +50,8 @@ ActiveRecord::Schema.define(version: 2018_05_19_221806) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "donations", "organizations"
+  add_foreign_key "donations", "users"
+  add_foreign_key "reviews", "organizations"
+  add_foreign_key "reviews", "users"
 end
