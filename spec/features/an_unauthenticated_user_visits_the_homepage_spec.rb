@@ -12,45 +12,44 @@ describe "An unauthenticated user visits the homepage,", type: :feature do
     it 'should have a login form' do
       visit login_path
 
-      expect(page).to have_field("user[username]")
-      expect(page).to have_field("user[password]")
+      expect(page).to have_field("username")
+      expect(page).to have_field("password")
     end
 
     describe 'and after filling out the form,' do
 
       it 'should bring them back to the home page' do
         visit login_path
-        username = 'user1342'
+        username = 'user1'
         password = 'password'
-        fill_in 'user[username]', with: username
-        fill_in 'user[password]', with: password
-        click_on 'Login'
+        fill_in 'username', with: username
+        fill_in 'password', with: password
+        save_and_open_page
+        click_on 'Log In'
 
         expect(current_path).to eq(root_path)
 
       end
       it 'should no longer show the login button' do
         visit login_path
-        username = 'user1342'
+        username = 'user12'
         password = 'password'
-        fill_in 'user[username]', with: username
-        fill_in 'user[password]', with: password
-        click_on 'Login'
+        fill_in 'username', with: username
+        fill_in 'password', with: password
+        click_on 'Log In'
 
-        expect(page).to_not have_content('Login')
+        expect(page).to_not have_content('Log In')
         expect(page).to_not have_content('Sign Up')
       end
       it 'should show a link to their profile page' do
         visit login_path
-        username = 'user1342'
+        username = 'user123'
         password = 'password'
-        fill_in 'user[username]', with: username
-        fill_in 'user[password]', with: password
-        click_on 'Login'
+        fill_in 'username', with: username
+        fill_in 'password', with: password
+        click_on 'Log In'
 
         expect(page).to have_link("My Profile")
-        
-
       end
     end
   end
