@@ -61,7 +61,5 @@ describe "A visitor", type: :feature do
         end
       end
     end
-
-    
-  
+  end
 end
