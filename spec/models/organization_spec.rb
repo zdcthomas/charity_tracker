@@ -31,8 +31,8 @@ RSpec.describe Organization, type: :model do
 
         top_orgs = Organization.top_orgs
         expect(top_orgs.first).to eq(organization1)
-        expect(top_orgs.first).to eq(organization3)
-        expect(top_orgs.first).to eq(organization2)
+        expect(top_orgs[1]).to eq(organization3)
+        expect(top_orgs.last).to eq(organization2)
       end
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe Organization, type: :model do
                             text: 'This one helped some more',
                             organization_id: organization.id)
 
-        expect(organization.average_score).to eq(5.66)
+        expect(organization.average_score).to eq(5.7)
       end
     end
   end

@@ -21,13 +21,13 @@ describe "A visitor", type: :feature do
         visit root_path
 
         within "li:nth-child(1)" do
-          expect(page).to have_content(organization3.id)
+          expect(page).to have_content(organization3.name)
         end
         within "li:nth-child(2)" do
-          expect(page).to have_content(organization2.id)
+          expect(page).to have_content(organization2.name)
         end
         within "li:nth-child(3)" do
-          expect(page).to have_content(organization1.id)
+          expect(page).to have_content(organization1.name)
         end
       end
       it 'should display a link to the organizations index' do
