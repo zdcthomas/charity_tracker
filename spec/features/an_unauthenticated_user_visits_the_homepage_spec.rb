@@ -23,7 +23,6 @@ describe "An unauthenticated user visits the homepage,", type: :feature do
         user = User.create!(username:'user1', password:'password')
         fill_in 'username', with: user.username
         fill_in 'password', with: user.password
-        save_and_open_page
         click_on 'Log In'
 
         expect(current_path).to eq(root_path)
