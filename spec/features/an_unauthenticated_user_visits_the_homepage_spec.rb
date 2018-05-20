@@ -20,10 +20,9 @@ describe "An unauthenticated user visits the homepage,", type: :feature do
 
       it 'should bring them back to the home page' do
         visit login_path
-        username = 'user1'
-        password = 'password'
-        fill_in 'username', with: username
-        fill_in 'password', with: password
+        user = User.create!(username:'user1', password:'password')
+        fill_in 'username', with: user.username
+        fill_in 'password', with: user.password
         save_and_open_page
         click_on 'Log In'
 
@@ -32,10 +31,9 @@ describe "An unauthenticated user visits the homepage,", type: :feature do
       end
       it 'should no longer show the login button' do
         visit login_path
-        username = 'user12'
-        password = 'password'
-        fill_in 'username', with: username
-        fill_in 'password', with: password
+        user = User.create!(username:'user1', password:'password')
+        fill_in 'username', with: user.username
+        fill_in 'password', with: user.password
         click_on 'Log In'
 
         expect(page).to_not have_content('Log In')
@@ -43,10 +41,9 @@ describe "An unauthenticated user visits the homepage,", type: :feature do
       end
       it 'should show a link to their profile page' do
         visit login_path
-        username = 'user123'
-        password = 'password'
-        fill_in 'username', with: username
-        fill_in 'password', with: password
+        user = User.create!(username:'user1', password:'password')
+        fill_in 'username', with: user.username
+        fill_in 'password', with: user.password
         click_on 'Log In'
 
         expect(page).to have_link("My Profile")
