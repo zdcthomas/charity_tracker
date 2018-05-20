@@ -1,0 +1,14 @@
+<banner>
+
+</banner>
+
+<content>
+  <ul class="top_organizations">
+    <% @top_orgs.each do |organization| %>
+      <li>
+        <%= organization.title %>
+        <%= organization.description %>
+      </li>
+    <% end %>
+  </ul>
+</content>
