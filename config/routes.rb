@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :organizations, only: [:index]
   get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
 end
