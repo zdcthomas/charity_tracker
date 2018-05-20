@@ -4,7 +4,7 @@ describe "A visitor", type: :feature do
   context 'visits the root adress' do
     describe 'displayed information' do
     it 'should display a sign up and a login button' do
-        visit root
+        visit root_path
 
         expect(page).to have_link("Login")
         expect(page).to have_link("Sign Up")
@@ -65,7 +65,7 @@ describe "A visitor", type: :feature do
 
           click_on 'Submit'
 
-          expect(current_path).to eq(root)
+          expect(current_path).to eq(root_path)
         end
       end
     end

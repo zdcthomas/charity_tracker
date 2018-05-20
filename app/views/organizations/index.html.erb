@@ -1,0 +1,10 @@
+<content>
+  <ul>
+    <% @organizations.each do |organization| %>
+      <li>
+        <%= organization.name %>
+        <%= organization.description %>
+      </li>
+    <% end %>
+  </ul>
+</content>
