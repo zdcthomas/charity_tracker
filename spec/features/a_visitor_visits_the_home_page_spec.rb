@@ -9,7 +9,7 @@ describe "A visitor", type: :feature do
         expect(page).to have_link("Login")
         expect(page).to have_link("Sign Up")
       end
-      it 'should display the top organization' do
+      it 'should display the top organization with a button that leads to the organizations page' do
         organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
         organization2 = Organization.create!(name:'another Charity', description:'does some stuff')
         organization3 = Organization.create!(name:'still yet another Charity', description:'does some more stuff')
@@ -20,9 +20,11 @@ describe "A visitor", type: :feature do
 
         visit root_path
         save_and_open_page
+
         within('banner') do
           expect(page).to have_content(organization3.name)
           expect(page).to have_content(organization3.description)
+          expect(page).to have_link('Help')
         end
       end
       it 'should display a list of the top organizations in decending order' do
