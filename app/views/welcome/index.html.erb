@@ -1,10 +1,11 @@
-<% if @top_orgs.first %>
+<% if @top_organization %>
   <banner>
     </br>
       <h3>
-        <%= @top_orgs[0].name %>
+        <%= @top_organization.name %>
       </h3>
-      <%= @top_orgs[0].description %>
+      <%= @top_organization.description %>
+      <%= link_to "Help", organization_path(@top_organization) %>
     </br>
   </banner>
 
