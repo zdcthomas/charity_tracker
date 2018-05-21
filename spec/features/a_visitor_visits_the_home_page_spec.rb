@@ -3,11 +3,27 @@ require 'rails_helper'
 describe "A visitor", type: :feature do
   context 'visits the root adress' do
     describe 'displayed information' do
-    it 'should display a sign up and a login button' do
+      it 'should display a sign up and a login button' do
         visit root_path
 
         expect(page).to have_link("Login")
         expect(page).to have_link("Sign Up")
+      end
+      it 'should display the top organization' do
+        organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
+        organization2 = Organization.create!(name:'another Charity', description:'does some stuff')
+        organization3 = Organization.create!(name:'still yet another Charity', description:'does some more stuff')
+        user = User.create!(username:'joe',password:'anthropist')
+        review1 = user.reviews.create(score:3, text:'This one helped some', organization_id: organization1.id)
+        review2 = user.reviews.create(score:4, text:'This one helped some more', organization_id: organization2.id)
+        review3 = user.reviews.create(score:5, text:'This one helped way more', organization_id: organization3.id)
+
+        visit root_path
+        save_and_open_page
+        within('banner') do
+          expect(page).to have_content(organization3.name)
+          expect(page).to have_content(organization3.description)
+        end
       end
       it 'should display a list of the top organizations in decending order' do
         organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')

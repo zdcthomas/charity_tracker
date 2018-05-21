@@ -1,14 +1,21 @@
-<banner>
+<% if @top_orgs.first %>
+  <banner>
+    </br>
+      <h3>
+        <%= @top_orgs[0].name %>
+      </h3>
+      <%= @top_orgs[0].description %>
+    </br>
+  </banner>
 
-</banner>
-
-<content>
-  <ul class="top_organizations">
-    <% @top_orgs.each do |organization| %>
-      <li>
-        <%= organization.name %>
-        <%= organization.description %>
-      </li>
-    <% end %>
-  </ul>
-</content>
+  <content>
+    <ul class="top_organizations">
+      <% @top_orgs.each do |organization| %>
+        <li>
+          <%= organization.name %>:
+          <%= organization.description %>
+        </li>
+      <% end %>
+    </ul>
+  </content>
+<% end %>
