@@ -7,6 +7,7 @@ RSpec.feature "Donations", type: :feature do
       username ='django'
       password = 'silentD'
       user = User.create!(username:username, password:password)
+      
       visit(login_path)
       
       fill_in :username, with: username
