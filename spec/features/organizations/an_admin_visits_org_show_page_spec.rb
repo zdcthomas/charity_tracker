@@ -57,5 +57,21 @@ describe 'an Admin' do
         expect(page).to_not have_content(description)
       end
     end
+    context 'reviews for an organization' do
+      it 'should have a delete this review button for admins' do
+        name = 'Some Charity'
+        description = 'does some stuff'
+        user = User.create!(username:'user', password:'password')
+        organization1 = Organization.create!(name: name, description:description)
+        reivew = user.reviews.create!(score:5, text:'this is great', organization_id: organization1.id)
+        admin = User.create!(username:'BigAdmin', password:'123abc', role:1)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+        click_on("Delete this Review")
+        
+        expect(current_path).to eq(organization_path(organization1))
+        expect(page).to_not have_content(review.text)
+      end
+    end
   end
 end

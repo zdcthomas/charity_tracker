@@ -12,6 +12,16 @@ describe "A User", type: :feature do
       expect(page).to have_field('review[text]')
       expect(page).to have_field('review[score]')
     end
+    it 'should not show the edit and delete links if user is not an admin' do
+      user = User.create!(username:'Say', password:'myname')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      organization1 = Organization.create!(name:'Red Cross', description:'does stuff for people stometimes')
+
+      visit organization_path organization1
+      
+      expect(page).to_not have_link("Edit This Organization")
+      expect(page).to_not have_link("Delete This Organization")
+    end
     context 'after entering a review and clicking submit' do
       it 'should then display the review on the organization page' do
         user = User.create!(username:'Say', password:'myname')
