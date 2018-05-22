@@ -1,14 +1,21 @@
-<content>
+<banner>
   <h3>
-    <%= @organization.name %> 
+    <%= @organization.name %>
   </h3>
   <h5>
-    <%= @organization.description %> 
+    <%= @organization.description %>
   </h5>
   <p>
     Average User Score: <%= @average_score %>
   </p>
-  
+  <% if current_admin? %>
+    <%= link_to  "Edit This Organization", edit_admin_organization_path %>
+    <%= link_to  "Delete This Organization", admin_organization_path(@organization), method:'delete'%>
+  <% end %>
+</banner>
+<content>
+
+
 
 
 

@@ -32,8 +32,8 @@ describe 'an Admin' do
 
         description = "this is an edited description"
         old_description = organization1.description
-        fill_in :description, with: description
-        click_on :submit
+        fill_in :organization_description, with: description
+        click_on 'Update Organization'
 
         expect(current_path).to eq(organization_path(organization1))
         expect(page).to have_content(description)
@@ -50,7 +50,7 @@ describe 'an Admin' do
 
         visit organization_path(organization1)
 
-        click_on :delete
+        click_on "Delete This Organization"
 
         expect(current_path).to eq(organizations_path)
         expect(page).to_not have_content(name)
