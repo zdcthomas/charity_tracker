@@ -1,5 +1,9 @@
 <content>
   <%= @organization.name %>
   <%= @organization.description %>
-  <%= link_to  "Donate", new_organization_donation_path(@organization)%>
+  <% if current_user %>
+    <%= link_to "Donate", new_organization_donation_path(@organization)%>
+  <% else %>
+    <%= link_to "Donate", new_user_path %>
+  <% end %>
 <content>

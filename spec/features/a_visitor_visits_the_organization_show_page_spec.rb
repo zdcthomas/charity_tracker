@@ -17,8 +17,24 @@ describe "A visitor", type: :feature do
       expect(page).to have_link('Donate')
     end
     describe 'and clicking on the the donate link' do
-      it 'should redirect to the make a dontation page' do
+      it 'should redirect to the sign up page if the visitor is unauthenticated' do
         organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
+
+        visit organization_path organization1
+        click_on 'Donate'
+
+        expect(current_path).to eq(new_user_path)
+      end
+      it 'should redirect to the make a dontation page if the user is signed in' do
+        organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
+        username ='django'
+        password = 'silentD'
+        user = User.create!(username:username, password:password)
+        visit(login_path)
+      
+        fill_in :username, with: username
+        fill_in :password, with: password
+        click_on "Log In"
 
         visit organization_path organization1
         click_on 'Donate'
