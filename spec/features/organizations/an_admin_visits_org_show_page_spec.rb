@@ -67,6 +67,7 @@ describe 'an Admin' do
         admin = User.create!(username:'BigAdmin', password:'123abc', role:1)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
+        visit organization_path(organization1)
         click_on("Delete this Review")
         
         expect(current_path).to eq(organization_path(organization1))

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     resources :organizations
-    # , only: [:edit,:update,:new,:create,:delete]
+    resources :reviews
   end
   
   get '/login', to: "sessions#new"
