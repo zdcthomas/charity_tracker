@@ -8,7 +8,7 @@
 
 ORGANIZATIONS = ["American Red Cross", "Wounded Warrior", "Save the Children", "World Wildlife Federation", "International Rescue Commitee"]
 REVIEWS = ['another charitable organization that isnt that great', 'this one isnt great', 'a good review', 'a great review']
-USERS = ['JimBob', 'anotheruser', 'username', 'joe', 'aPlant']
+USERS = ['JimBob', 'AnotherUser', 'username', 'joe', 'HelpfulJoe']
 DESCRIPTIONS = ['An organization description', 'some other description', 'focuses on things overseas']
 
 ORGANIZATIONS.each do |organization|
