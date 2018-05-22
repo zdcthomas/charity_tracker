@@ -1,8 +1,13 @@
 class DonationsController < ApplicationController
   def new
-    @donation = Donation.new
-    @organization = Organization.find(params[:organization_id])
+    if current_user
+      @donation = Donation.new
+      @organization = Organization.find(params[:organization_id])
+    else
+      redirect_to new_user_path
+    end
   end
+
   def create
     organization = Organization.find(params[:organization_id])
     @donation = organization.donations.new(amount:params[:donation][:amount], user_id:current_user.id)

@@ -4,6 +4,7 @@
       <li>
         <%= organization.name %>
         <%= organization.description %>
+        <%= link_to  "Donate", new_organization_donation_path(organization) %>
       </li>
     <% end %>
   </ul>
