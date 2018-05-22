@@ -54,6 +54,7 @@ describe "A visitor", type: :feature do
         click_on 'Donate'
 
         expect(current_path).to eq(new_user_path)
+        expect(page).to have_content("You must make an account to donate")
       end
       it 'should redirect to the make a dontation page if the user is signed in' do
         organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')

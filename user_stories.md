@@ -24,7 +24,7 @@
       - CEO
     * it should have a 'donate' button
   * and I click on the donate button
-    - it should redirect me to the donation page for that organization
+    - it should redirect me to the account creation page
 
 **As a user:**
 

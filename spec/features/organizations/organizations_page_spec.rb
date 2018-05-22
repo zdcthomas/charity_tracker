@@ -40,5 +40,14 @@ describe 'A Visitor' do
       expect(current_path).to eq(new_user_path)
       expect(page).to have_content("You must make an account to donate")
     end
+    context 'each organization name' do
+      it'should be a link to that organizations page' do
+        organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
+        visit organizations_path
+
+        click_on(organization1.name)
+        expect(current_path).to eq(organization_path(organization1))
+      end
+    end
   end
 end
