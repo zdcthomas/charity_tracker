@@ -1,0 +1,18 @@
+<banner>
+  <h3>
+    <%= @user.username %>
+  </h3>
+</banner>
+
+<content>
+  <div class="donations">
+      <% @donations.each do |donation| %>
+        Donated <%= donation.amount %> to <%= donation.organization.name %>
+      <% end %>
+  </div>
+
+  <div class="reviews">
+    <% @donations.each do |donation| %>
+    <% end %>
+  </div>
+</content>
