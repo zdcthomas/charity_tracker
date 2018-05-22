@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: charity_tracker_production
+  database: ENV["DATABASE_URL"]
   username: charity_tracker
   password: <%= ENV['CHARITY_TRACKER_DATABASE_PASSWORD'] %>
