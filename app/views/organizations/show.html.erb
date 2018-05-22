@@ -1,9 +1,38 @@
 <content>
   <%= @organization.name %>
   <%= @organization.description %>
+  Average User Score: <%= @average_score %>
+
+
   <% if current_user %>
+
     <%= link_to "Donate", new_organization_donation_path(@organization)%>
+    <%= form_for [@organization, @review] do |f| %>
+      <%= f.label :text %>
+      <%= f.text_area :text %>
+
+      <%= f.label :score %>
+      <%= f.number_field :score %>
+
+      <%= f.submit "Submit Review"%>
+    <% end %>
+
   <% else %>
     <%= link_to "Donate", new_user_path %>
   <% end %>
+
+
+  <div class="reviews">
+    <ul>
+      <% @reviews.each do |review| %>
+        <li>
+          <%= review.user.username %>:
+          <%= review.text %>
+          <h3>
+            Score: <%= review.score %>
+          </h3>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <content>

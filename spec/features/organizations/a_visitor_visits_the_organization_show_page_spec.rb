@@ -17,21 +17,27 @@ describe "A visitor", type: :feature do
       user3 = User.create!(username:'twofinger', password:'rein')
       review1 = user1.reviews.create!(score: 5, text:'some text', organization_id: organization1.id)
       review2 = user2.reviews.create!(score: 15, text:'some other text', organization_id: organization1.id)
+
+      visit organization_path organization1
+
+      expect(page).to have_content("Average User Score: 10")
+    end
+    it 'should display the reviews which users have given the organization' do
+      organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
+      user1 = User.create!(username:'django', password:'silentD')
+      user2 = User.create!(username:'reinhardt', password:'jazzy')
+      user3 = User.create!(username:'twofinger', password:'rein')
+      review1 = user1.reviews.create!(score: 5, text:'some text', organization_id: organization1.id)
+      review2 = user2.reviews.create!(score: 15, text:'some other text', organization_id: organization1.id)
       review3 = user3.reviews.create!(score: 12, text:'more review text', organization_id: organization1.id)
 
       visit organization_path organization1
 
       within('.reviews') do
-        expect(page).to have_content("#{user1.name}: #{review1.text}")
-        expect(page).to have_content("#{user2.name}: #{review2.text}")
-        expect(page).to have_content("#{user3.name}: #{review4.text}")
+        expect(page).to have_content("#{user1.username}: #{review1.text}")
+        expect(page).to have_content("#{user2.username}: #{review2.text}")
+        expect(page).to have_content("#{user3.username}: #{review3.text}")
       end
-    end
-    it 'should display the reviews which users have given the organization' do
-      organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
-      user = User.create!(username:'django', password:'silentD')
-      user.reviews.create!(score: 5, text:'some text', organization_id: organization1.id)
-      user.reviews.create!(score: 15, text:'some text', organization_id: organization1.id)
     end
     it 'should have a donation button' do
       organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')

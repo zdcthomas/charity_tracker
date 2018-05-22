@@ -5,5 +5,8 @@ class OrganizationsController < ApplicationController
 
   def show 
     @organization = Organization.find(params[:id])
+    @average_score = @organization.average_score
+    @review = Review.new
+    @reviews = @organization.reviews
   end
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :organizations, only: [:index, :show] do
     resources :donations, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
   
   get '/login', to: "sessions#new"
