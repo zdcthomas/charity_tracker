@@ -5,14 +5,20 @@
 </banner>
 
 <content>
-  <div class="donations">
-      <% @donations.each do |donation| %>
-        Donated <%= donation.amount %> to <%= donation.organization.name %>
-      <% end %>
-  </div>
-
-  <div class="reviews">
+  <ul class="donations">
     <% @donations.each do |donation| %>
+      <li>
+        Donated <%= donation.amount %> to <%= donation.organization.name %>
+      </li>
     <% end %>
-  </div>
+  </ul>
+
+  <ul class="reviews">
+    <% @reviews.each do |review| %>
+      <li>
+        <%= review.organization.name %>:
+        Score: <%= review.score%>
+        <%= review.text%>
+    <% end %>
+  </ul>
 </content>

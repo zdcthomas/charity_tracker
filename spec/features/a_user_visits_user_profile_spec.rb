@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "My Profile", type: :feature do
   describe 'A User' do
-    context 'visiting the user show page' do 
+    context 'visiting the user show page' do
       it 'should display the users username' do
         username = 'Igor'
         password = 'S7rav1nSk1'
@@ -32,10 +32,10 @@ RSpec.feature "My Profile", type: :feature do
         password = 'S7rav1nSk1'
         user = User.create!(username: username, password: password)
         organization1 = Organization.create!(name:'RED CROSS', description:'american relief aid')
-        review1 = user.reviews.create!(score: 5, 
+        review1 = user.reviews.create!(score: 5,
                                        text: 'After I donated, I saw a huge improvement in the local area!',
                                        organization_id: organization1.id)
-        review2 = user.reviews.create!(score: 2, 
+        review2 = user.reviews.create!(score: 2,
                                        text: 'I saw no difference!',
                                        organization_id: organization1.id)
         visit user_path user

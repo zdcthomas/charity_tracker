@@ -23,7 +23,7 @@ RSpec.feature "Donations", type: :feature do
       click_on 'Donate'
 
       expect(current_path).to eq(user_path user)
-      expect(page).to have_content("Donated #{amount} To #{organization1.name}")
+      expect(page).to have_content("Donated #{amount} to #{organization1.name}")
     end
   end
 end
