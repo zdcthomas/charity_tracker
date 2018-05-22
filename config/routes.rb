@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :donations, only: [:new, :create]
     resources :reviews, only: [:create]
   end
+  namespace :admin do
+    resources :organization, only: [:edit,:new,:create]
+  end
   
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
