@@ -20,14 +20,14 @@ describe 'an Admin' do
         visit organization_path(organization1)
         click_on("Edit This Organization")
 
-        expect(current_path).to eq(edit_organization_path(organization1))
+        expect(current_path).to eq(edit_admin_organization_path(organization1))
       end
       it 'should change the data about that organization' do
         organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
         admin = User.create!(username:'BigAdmin', password:'123abc', role: 1)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-        visit edit_organization_path(organization1)
+        visit edit_admin_organization_path(organization1)
 
 
         description = "this is an edited description"
