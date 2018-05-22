@@ -1,0 +1,6 @@
+<%= form_for [@organization, @donation] do |f| %>
+  <%= f.label :amount %>
+  <%= f.number_field :amount %>
+
+  <%= f.submit %>
+<% end %>

@@ -19,7 +19,6 @@ describe "A visitor", type: :feature do
         review3 = user.reviews.create(score:5, text:'This one helped way more', organization_id: organization3.id)
 
         visit root_path
-        save_and_open_page
 
         within('banner') do
           expect(page).to have_content(organization3.name)

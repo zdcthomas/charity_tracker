@@ -6,7 +6,6 @@ describe "A visitor", type: :feature do
       organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
 
       visit organization_path organization1
-
       expect(page).to have_content(organization1.name)
       expect(page).to have_content(organization1.description)
     end
@@ -24,8 +23,8 @@ describe "A visitor", type: :feature do
         visit organization_path organization1
         click_on 'Donate'
 
-        expect(current_path).to eq(new_donation_path)
+        expect(current_path).to eq(new_organization_donation_path organization1)
       end
-      
+    end
   end
 end
