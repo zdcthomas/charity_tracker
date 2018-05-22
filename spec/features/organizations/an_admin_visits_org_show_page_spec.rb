@@ -44,7 +44,7 @@ describe 'an Admin' do
       it 'should delete that organization and redirect to organization index' do
         name = 'Some Charity'
         description = 'does some stuff'
-        organization1 = Organization.create!(name: name, description:)
+        organization1 = Organization.create!(name: name, description:description)
         admin = User.create!(username:'BigAdmin', password:'123abc', role:1)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
