@@ -22,7 +22,7 @@ describe "A visitor", type: :feature do
 
       expect(page).to have_content("Average User Score: 10")
     end
-    it 'should display the reviews which users have given the organization' do
+    it 'should display the reviews which users have given the organization with the most recent at the top' do
       organization1 = Organization.create!(name:'Some Charity', description:'does some stuff')
       user1 = User.create!(username:'django', password:'silentD')
       user2 = User.create!(username:'reinhardt', password:'jazzy')
@@ -33,10 +33,14 @@ describe "A visitor", type: :feature do
 
       visit organization_path organization1
 
-      within('.reviews') do
-        expect(page).to have_content("#{user1.username}: #{review1.text}")
-        expect(page).to have_content("#{user2.username}: #{review2.text}")
+      within('li:nth-child(1)') do
         expect(page).to have_content("#{user3.username}: #{review3.text}")
+      end
+      within('li:nth-child(2)') do
+        expect(page).to have_content("#{user2.username}: #{review2.text}")
+      end
+      within('li:nth-child(3)') do
+        expect(page).to have_content("#{user1.username}: #{review1.text}")
       end
     end
     it 'should have a donation button' do
