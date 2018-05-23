@@ -30,6 +30,12 @@ nav li a:hover {
   color: white;
   background-color: gray;
   text-decoration: none;
+  -webkit-transition:.5s;
+}
+
+.active {
+  background-color: gray;
+  text-decoration: none;
 }
 
 header {

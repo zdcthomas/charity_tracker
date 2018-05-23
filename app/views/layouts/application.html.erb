@@ -15,7 +15,7 @@
     <nav>
       <ul>
         <%= render partial: "/partials/nav" %>
-        <%= render partial: "/partials/auth" unless current_page?(login_path || new_user_path) %>
+        <%= render partial: "/partials/auth" %>
       </ul>
     </nav>
     <%= yield %>
