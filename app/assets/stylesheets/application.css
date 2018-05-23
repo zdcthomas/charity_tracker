@@ -188,7 +188,7 @@ nav li a:hover {
 
 header {
   padding: 20px;
-  background: lightblue;
+  background: linear-gradient(to bottom right, lightblue, cyan);
   border-bottom: 3px solid gray
 }
 
@@ -359,4 +359,14 @@ content li {
 
   text-decoration: none;
   transition: background-color .3s;
+}
+
+footer {
+  border: 0;
+  padding: 2%;
+  color: lightgray;
+  background: gray;
+  text-align: center;
+}
+header footer {
 }
