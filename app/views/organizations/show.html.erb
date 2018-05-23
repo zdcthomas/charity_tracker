@@ -43,7 +43,7 @@
             Score: <%= review.score %>
           </h3>
           <% if current_admin? %>
-            <%= link_to  "Delete this Review", admin_review_path(review), method:'delete'%>
+            <%= link_to  "Delete this Review", admin_organization_review_path(@organization,review), method:'delete'%>
           <% end %>
         </li>
       <% end %>

@@ -63,7 +63,7 @@ describe 'an Admin' do
         description = 'does some stuff'
         user = User.create!(username:'user', password:'password')
         organization1 = Organization.create!(name: name, description:description)
-        reivew = user.reviews.create!(score:5, text:'this is great', organization_id: organization1.id)
+        review = user.reviews.create!(score:5, text:'this is great', organization_id: organization1.id)
         admin = User.create!(username:'BigAdmin', password:'123abc', role:1)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 

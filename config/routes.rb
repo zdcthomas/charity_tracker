@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
   namespace :admin do
-    resources :organizations
-    resources :reviews
+    resources :organizations do
+      resources :reviews
+    end
   end
   
   get '/login', to: "sessions#new"
