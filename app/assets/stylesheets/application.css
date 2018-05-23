@@ -336,8 +336,9 @@ content li {
 }
 
 .pagination a:hover {
-  background: #202020 none repeat scroll 0 0;
-  text-shadow: 1px 1px 1px #171717;
+  background: lightblue none repeat scroll 0 0;
+  text-shadow: 1px 1px 1px gray;
+  text-decoration: none;
 }
 
 .pagination a:active {
@@ -345,11 +346,17 @@ content li {
 }
 
 .pagination .current {
-  background: #202020 none repeat scroll 0 0;
+  background: lightblue none repeat scroll 0 0;
   color: white;
-  text-shadow: 1px 1px 1px #171717;
+  text-shadow: 1px 1px 1px gray;
 }
 
 .pagination .disabled {
   color: #C0C0C0;
+}
+.pagination a {
+  color: gray;
+
+  text-decoration: none;
+  transition: background-color .3s;
 }

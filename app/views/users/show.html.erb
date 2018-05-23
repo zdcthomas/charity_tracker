@@ -17,7 +17,7 @@
             Donated <%= donation.amount %> to
           </h5>
           <h4> 
-            <%= donation.organization.name %>
+            <%= link_to  "#{donation.organization.name}", organization_path(donation.organization) %>
           </h4>
         </li>
       <% end %>
@@ -30,7 +30,7 @@
       <% @reviews.each do |review| %>
         <li>
           <h4>
-          <%= review.organization.name %>:</br>
+          <%= link_to  "#{review.organization.name}", organization_path(review.organization) %>:</br>
           </h4>
           <h5 style="text-indent: 25px;">
             Score: <%= review.score%></br>

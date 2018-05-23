@@ -26,6 +26,19 @@ RSpec.feature "My Profile", type: :feature do
           expect(page).to have_content("Donated #{donation1.amount} to #{organization1.name}")
           expect(page).to have_content("Donated #{donation2.amount} to #{organization1.name}")
         end
+
+      end
+      it 'should have links to the organziations pages' do
+        username = 'Igor'
+        password = 'S7rav1nSk1'
+        user = User.create!(username: username, password: password)
+        organization1 = Organization.create!(name:'RED CROSS', description:'american relief aid')
+        donation1 = user.donations.create!(amount: 40, organization_id: organization1.id)
+
+        visit user_path user
+
+        click_on("#{organization1.name}")
+        expect(current_path).to eq(organization_path(organization1))
       end
       it 'should display the reviews the user has left' do
         username = 'Igor'
