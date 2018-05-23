@@ -1,3 +1,6 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
 body {
   margin: 0px;
 }
@@ -57,8 +60,15 @@ header {
 
 .featured {
   display: flex;
-  align-items: baseline;
+  padding: 0px;
+  text-align: center;
+  justify-content: space-around
 }
+
+.description{
+  margin-left: 10%;
+}
+
 
 content ul{
   list-style-type: none;
@@ -185,11 +195,12 @@ header {
 .featured {
   display: flex;
   width: 800px;
+  text-align: center;
   align-items: baseline;
 }
 
 .featured form{
-  width: 80%;
+  width: 100%;
 }
 
 content ul{
