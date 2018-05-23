@@ -194,9 +194,11 @@ header {
 
 .featured {
   display: flex;
-  width: 800px;
+  width: 100%;
   text-align: center;
   align-items: baseline;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .featured form{
