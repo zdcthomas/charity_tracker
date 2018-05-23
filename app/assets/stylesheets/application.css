@@ -4,6 +4,10 @@ body {
 
 nav {
   display: flex;
+  position: fixed; 
+  top: 0; 
+  width: 100%;
+  overflow: hidden;
 }
 
 nav ul {
@@ -46,6 +50,7 @@ nav li a:hover {
 
 header {
   padding: 20px;
+  margin-top: 30px;
   background: lightblue;
   border-bottom: 3px solid gray
 }
@@ -279,15 +284,17 @@ content li {
 
 .my_profile {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .my_profile ul{
   width: 100%;
+  float: left;
 }
 
 .my_profile li {
   width: 100%;
+  text-align: left;
 }
 
 .organizations li {
