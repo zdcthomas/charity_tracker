@@ -19,6 +19,11 @@ nav li {
   float: left;
 }
 
+content .title {
+  display: flex;
+  justify-content: center;
+}
+
 nav li a {
   display: block;
   color: white;
@@ -58,6 +63,7 @@ content ul{
 
 content li {
   padding: 10px;
+  width: 29%;
 }
 
 content li a {
