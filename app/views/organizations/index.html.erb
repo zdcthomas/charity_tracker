@@ -8,7 +8,9 @@
   <ul>
     <% @organizations.each do |organization| %>
       <li>
-        <%= link_to  "#{organization.name}", organization_path(organization) %>
+        <h3>
+          <%= link_to  "#{organization.name}", organization_path(organization) %>
+        </h3>
         <%= organization.description %>
         <%= link_to  "Donate", new_organization_donation_path(organization) %>
       </li>

@@ -25,6 +25,7 @@ nav li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  -webkit-transition:.5s;
 }
 nav li a:hover {
   color: white;
@@ -57,6 +58,18 @@ content ul{
 
 content li {
   padding: 10px;
+}
+
+content li a {
+  -webkit-transition:.5s;
+
+}
+
+content li a:hover {
+  color: gray;
+  text-decoration: none;
+  text-shadow: 2px 2px lightgray;
+  -webkit-transition:.5s;
 }
 
 form{
@@ -96,14 +109,154 @@ input[type=submit] {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: 7px;
   cursor: pointer;
+  -webkit-transition:.5s;
+
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  color: rgb(243, 233, 213);
+  box-shadow:  2px 2px lightgray;
+  -webkit-transition:.5s;
 }
 
+.error{
+  
+}body {}
+  margin: 0px;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  -webkit-transition:.5s;
+}
+nav li a:hover {
+  color: white;
+  background-color: gray;
+  text-decoration: none;
+  -webkit-transition:.5s;
+}
+
+.active {
+  background-color: gray;
+  text-decoration: none;
+}
+
+header {
+  padding: 20px;
+  background: lightblue;
+  border-bottom: 3px solid gray
+}
+
+.featured {
+  display: flex;
+  align-items: baseline;
+}
+
+content ul{
+  list-style-type: none;
+  margin: 20px;
+  padding: 0;
+}
+
+content li {
+  padding: 10px;
+}
+
+content li a {
+  -webkit-transition:.5s;
+
+}
+
+content li a:hover {
+  color: gray;
+  text-decoration: none;
+  text-shadow: 2px 2px lightgray;
+  -webkit-transition:.5s;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  width: 40%;
+}
+
+.reviews li {
+  padding: 10px;
+}
+
+.reviews h5 {
+  text-indent: 50px;
+}
+
+.reviews h6 {
+  text-indent: 25px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 120%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  -webkit-transition:.5s;
+
+}
+
+
+input[type=submit]:hover {
+  box-shadow:  2px 2px gray;
+  -webkit-transition:.5s;
+}
+
+content ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+content li {
+  border: 2px gray;
+  margin: 30px;
+  border-radius: 7px;
+}
 .error{
   
 }
