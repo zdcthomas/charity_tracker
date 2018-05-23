@@ -128,7 +128,7 @@ input[type=submit]:hover {
 }
 
 .error{
-  
+
 }
 body {
   margin: 0px;
@@ -258,11 +258,11 @@ content ul {
   flex-flow: row wrap;
 }
 
-
 content li {
   border: 2px gray;
   margin: 30px;
   border-radius: 7px;
+  text-align: center;
 }
 
 
@@ -282,4 +282,20 @@ content li {
 
 .my_profile li {
   width: 100%;
+}
+
+.organizations li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center; 
+}
+
+.organizations li input[type=submit] {
+  width: 70%;
+  font-size:100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-left: 75%;
 }

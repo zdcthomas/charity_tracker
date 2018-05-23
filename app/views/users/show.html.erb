@@ -6,17 +6,19 @@
 <%= render partial: "/partials/flash" %>
 <content>
   <div class="my_profile">
-  
+
     <ul class="donations">
       <h3>
         My Donations
       </h3>
       <% @donations.each do |donation| %>
         <li>
-          Donated <%= donation.amount %> to
-          <h5> 
-            <%= donation.organization.name %>
+          <h5>
+            Donated <%= donation.amount %> to
           </h5>
+          <h4> 
+            <%= donation.organization.name %>
+          </h4>
         </li>
       <% end %>
     </ul>
@@ -30,12 +32,12 @@
           <h4>
           <%= review.organization.name %>:</br>
           </h4>
-          <h6 style="text-indent: 25px;">
+          <h5 style="text-indent: 25px;">
             Score: <%= review.score%></br>
-            <h5 style="text-indent: 25px;">
+            <h4 style="text-indent: 25px;">
               <%= review.text%>
-            </h5>
-          </h6>
+            </h4>
+          </h5>
       <% end %>
     </ul>
   </div>

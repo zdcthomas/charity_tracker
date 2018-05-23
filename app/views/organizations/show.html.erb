@@ -9,7 +9,7 @@
     Average User Score: <%= @average_score %>
   </h6>
   <h3>
-    <%= link_to "Donate", new_organization_donation_path(@organization)%>
+    <%= button_to "Donate", new_organization_donation_path(@organization), method:'get'%>
   </h3>
   <% if current_admin? %>
     <%= link_to  "Edit This Organization", edit_admin_organization_path %>

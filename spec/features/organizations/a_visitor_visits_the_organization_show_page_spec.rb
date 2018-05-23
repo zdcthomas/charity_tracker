@@ -49,7 +49,7 @@ describe "A visitor", type: :feature do
 
       visit organization_path organization1
 
-      expect(page).to have_link('Donate')
+      expect(page).to have_button('Donate')
     end
     describe 'and clicking on the the donate link' do
       it 'should redirect to the sign up page if the visitor is unauthenticated' do

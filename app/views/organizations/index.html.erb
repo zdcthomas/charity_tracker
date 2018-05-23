@@ -5,14 +5,18 @@
 </header>
 <%= render partial: "/partials/flash" %>
 <content>
-  <ul>
+  <ul class="organizations">
     <% @organizations.each do |organization| %>
       <li>
         <h3>
           <%= link_to  "#{organization.name}", organization_path(organization) %>
         </h3>
-        <%= organization.description %>
-        <%= link_to  "Donate", new_organization_donation_path(organization) %>
+        <h4>
+          <%= organization.description %>
+        </h4>
+        <h4>
+          <%= button_to  "Donate", new_organization_donation_path(organization),method:'get' %>
+        </h4>
       </li>
     <% end %>
   </ul>

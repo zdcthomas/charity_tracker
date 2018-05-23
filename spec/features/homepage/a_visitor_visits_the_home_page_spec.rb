@@ -24,7 +24,7 @@ describe "A visitor", type: :feature do
         within('header') do
           expect(page).to have_content(organization3.name)
           expect(page).to have_content(organization3.description)
-          expect(page).to have_link('Donate')
+          expect(page).to have_button('Donate')
         end
 
         click_on('Donate')
