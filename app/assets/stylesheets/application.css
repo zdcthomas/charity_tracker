@@ -179,7 +179,12 @@ header {
 
 .featured {
   display: flex;
+  width: 800px;
   align-items: baseline;
+}
+
+.featured form{
+  width: 80%;
 }
 
 content ul{
