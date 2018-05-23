@@ -1,4 +1,4 @@
-body {
+body {}
   margin: 0px;
 }
 
@@ -62,6 +62,7 @@ content li {
 form{
   display: flex;
   flex-direction: column;
+  margin-left: 15px;
   width: 40%;
 }
 
@@ -75,6 +76,32 @@ form{
 
 .reviews h6 {
   text-indent: 25px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 120%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
 
 .error{
