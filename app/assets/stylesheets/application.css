@@ -209,6 +209,7 @@ form{
   flex-direction: column;
   margin-left: 15px;
   width: 40%;
+  padding: 1%;
 }
 
 .reviews li {
