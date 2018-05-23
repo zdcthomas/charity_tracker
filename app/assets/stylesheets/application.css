@@ -127,7 +127,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  color: rgb(243, 233, 213);
+  color: currentColor;
   box-shadow:  2px 2px lightgray;
   -webkit-transition:.5s;
 }
