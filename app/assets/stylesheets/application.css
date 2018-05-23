@@ -62,7 +62,8 @@ header {
   display: flex;
   padding: 0px;
   text-align: center;
-  justify-content: space-around
+  justify-content: space-around;
+  font-weight: bold;
 }
 
 .description{
@@ -188,7 +189,7 @@ nav li a:hover {
 
 header {
   padding: 20px;
-  background: linear-gradient(to bottom right, lightblue, cyan);
+  background: lightblue;
   border-bottom: 3px solid gray
 }
 
@@ -199,6 +200,7 @@ header {
   align-items: baseline;
   padding-left: 10%;
   padding-right: 10%;
+  font-weight: bold;
 }
 
 .featured form{
