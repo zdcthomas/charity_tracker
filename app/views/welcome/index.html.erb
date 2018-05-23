@@ -2,7 +2,7 @@
   <banner>
     </br>
       <h3>
-        <%= @top_organization.name %>
+        <%= link_to  "#{@top_organization.name}", organization_path(@top_organization) %>
       </h3>
       <%= @top_organization.description %>
       <%= link_to "Help", organization_path(@top_organization) %>
@@ -13,7 +13,7 @@
     <ul class="top_organizations">
       <% @top_orgs.each do |organization| %>
         <li>
-          <%= organization.name %>:
+          <%= link_to "#{organization.name}", organization_path(organization) %>:
           <%= organization.description %>
         </li>
       <% end %>
