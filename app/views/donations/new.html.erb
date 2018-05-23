@@ -1,6 +1,14 @@
-<%= form_for [@organization, @donation] do |f| %>
-  <%= f.label :amount %>
-  <%= f.number_field :amount %>
+<header>
+  <h1>
+    Donate to <%= @organization.name %>
+  </h1>
+</header>
+<%= render partial: "/partials/flash" %>
+<content>
+  <%= form_for [@organization, @donation] do |f| %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
 
-  <%= f.submit "Donate"%>
-<% end %>
+    <%= f.submit "Donate"%>
+  <% end %>
+</content>

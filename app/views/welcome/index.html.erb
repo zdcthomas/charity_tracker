@@ -1,20 +1,36 @@
 <% if @top_organization %>
-  <banner>
+  <header>
     </br>
       <h3>
-        <%= link_to  "#{@top_organization.name}", organization_path(@top_organization) %>
+        Featured Organization
       </h3>
-      <%= @top_organization.description %>
-      <%= link_to "Help", organization_path(@top_organization) %>
+      <div class="featured">
+        <div>
+          <h2>
+            <%= link_to  "#{@top_organization.name}", organization_path(@top_organization) %>
+            </br>
+            <h3>
+              <%= link_to "Help", new_organization_donation_path(@top_organization) %>
+            </h3>
+          </h2>
+        </div>
+        <h4>
+          <%= @top_organization.description %>
+        </h4>
+      </div>
     </br>
-  </banner>
-
+  </header>
+  <%= render partial: "/partials/flash" %>
   <content>
     <ul class="top_organizations">
       <% @top_orgs.each do |organization| %>
         <li>
-          <%= link_to "#{organization.name}", organization_path(organization) %>:
-          <%= organization.description %>
+          <h3>
+            <%= link_to "#{organization.name}", organization_path(organization) %>:
+          </h3>
+          <h4>
+            <%= organization.description %>
+          </h4>
         </li>
       <% end %>
     </ul>

@@ -1,9 +1,9 @@
-<banner>
+<header>
   <h3>
     <%= @user.username %>
   </h3>
-</banner>
-
+</header>
+<%= render partial: "/partials/flash" %>
 <content>
   <ul class="donations">
     <% @donations.each do |donation| %>

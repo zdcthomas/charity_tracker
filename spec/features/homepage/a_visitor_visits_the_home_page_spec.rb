@@ -20,7 +20,7 @@ describe "A visitor", type: :feature do
 
         visit root_path
 
-        within('banner') do
+        within('header') do
           expect(page).to have_content(organization3.name)
           expect(page).to have_content(organization3.description)
           expect(page).to have_link('Help')
@@ -36,15 +36,16 @@ describe "A visitor", type: :feature do
         review3 = user.reviews.create(score:5, text:'This one helped way more', organization_id: organization3.id)
 
         visit root_path
-
-        within "li:nth-child(1)" do
-          expect(page).to have_content(organization3.name)
-        end
-        within "li:nth-child(2)" do
-          expect(page).to have_content(organization2.name)
-        end
-        within "li:nth-child(3)" do
-          expect(page).to have_content(organization1.name)
+        within "content" do
+          within "li:nth-child(1)" do
+            expect(page).to have_content(organization3.name)
+          end
+          within "li:nth-child(2)" do
+            expect(page).to have_content(organization2.name)
+          end
+          within "li:nth-child(3)" do
+            expect(page).to have_content(organization1.name)
+          end
         end
       end
       it 'should display a link to the organizations index' do

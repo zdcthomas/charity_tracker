@@ -2,7 +2,12 @@ body {
   margin: 0px;
 }
 
+nav {
+  display: flex;
+}
+
 nav ul {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -21,8 +26,51 @@ nav li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-li a:hover {
+nav li a:hover {
   color: white;
   background-color: gray;
   text-decoration: none;
+}
+
+header {
+  padding: 20px;
+  background: lightblue;
+  border-bottom: 3px solid gray
+}
+
+.featured {
+  display: flex;
+  align-items: baseline;
+}
+
+content ul{
+  list-style-type: none;
+  margin: 20px;
+  padding: 0;
+}
+
+content li {
+  padding: 10px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.reviews li {
+  padding: 10px;
+}
+
+.reviews h5 {
+  text-indent: 50px;
+}
+
+.reviews h6 {
+  text-indent: 25px;
+}
+
+.error{
+  
 }

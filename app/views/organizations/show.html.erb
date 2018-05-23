@@ -1,28 +1,26 @@
-<banner>
+<header>
   <h3>
     <%= @organization.name %>
   </h3>
   <h5>
     <%= @organization.description %>
   </h5>
-  <p>
+  <h6>
     Average User Score: <%= @average_score %>
-  </p>
+  </h6>
+  <h3>
+    <%= link_to "Donate", new_organization_donation_path(@organization)%>
+  </h3>
   <% if current_admin? %>
     <%= link_to  "Edit This Organization", edit_admin_organization_path %>
     <%= link_to  "Delete This Organization", admin_organization_path(@organization), method:'delete'%>
   <% end %>
-</banner>
+</header>
+<%= render partial: "/partials/flash" %>
 <content>
-
-
-
-
-
-  <%= link_to "Donate", new_organization_donation_path(@organization)%>
   <% if current_user %>
     <%= form_for [@organization, @review] do |f| %>
-      <%= f.label :text %>
+      <%= f.label "Review"%>
       <%= f.text_area :text %>
 
       <%= f.label :score %>
@@ -31,17 +29,22 @@
       <%= f.submit "Submit Review"%>
     <% end %>
   <% end %>
-
-
   <div class="reviews">
+    <h4>
+      User Reviews
+    </h4>
     <ul>
       <% @reviews.each do |review| %>
         <li>
-          <%= review.user.username %>:
-          <%= review.text %>
-          <h3>
+          <h4>
+            <%= review.user.username %>:
+          </h4>
+          <h5>
+            <%= review.text %>
+          </h5>
+          <h6>
             Score: <%= review.score %>
-          </h3>
+          </h6>
           <% if current_admin? %>
             <%= link_to  "Delete this Review", admin_organization_review_path(@organization,review), method:'delete'%>
           <% end %>
@@ -49,4 +52,4 @@
       <% end %>
     </ul>
   </div>
-<content>
+</content>

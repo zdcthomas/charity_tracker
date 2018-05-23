@@ -32,15 +32,16 @@ describe "A visitor", type: :feature do
       review3 = user3.reviews.create!(score: 12, text:'more review text', organization_id: organization1.id)
 
       visit organization_path organization1
-
-      within('li:nth-child(1)') do
-        expect(page).to have_content("#{user3.username}: #{review3.text}")
-      end
-      within('li:nth-child(2)') do
-        expect(page).to have_content("#{user2.username}: #{review2.text}")
-      end
-      within('li:nth-child(3)') do
-        expect(page).to have_content("#{user1.username}: #{review1.text}")
+      within "content" do
+        within('li:nth-child(1)') do
+          expect(page).to have_content("#{user3.username}: #{review3.text}")
+        end
+        within('li:nth-child(2)') do
+          expect(page).to have_content("#{user2.username}: #{review2.text}")
+        end
+        within('li:nth-child(3)') do
+          expect(page).to have_content("#{user1.username}: #{review1.text}")
+        end
       end
     end
     it 'should have a donation button' do
