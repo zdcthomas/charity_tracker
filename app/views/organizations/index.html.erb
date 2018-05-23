@@ -5,6 +5,9 @@
 </header>
 <%= render partial: "/partials/flash" %>
 <content>
+  <div class="pagination">
+    <%= will_paginate @organizations %>
+  </div>
   <ul class="organizations">
     <% @organizations.each do |organization| %>
       <li>
@@ -20,4 +23,5 @@
       </li>
     <% end %>
   </ul>
+
 </content>
