@@ -5,20 +5,38 @@
 </header>
 <%= render partial: "/partials/flash" %>
 <content>
-  <ul class="donations">
-    <% @donations.each do |donation| %>
-      <li>
-        Donated <%= donation.amount %> to <%= donation.organization.name %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="my_profile">
+  
+    <ul class="donations">
+      <h3>
+        My Donations
+      </h3>
+      <% @donations.each do |donation| %>
+        <li>
+          Donated <%= donation.amount %> to
+          <h5> 
+            <%= donation.organization.name %>
+          </h5>
+        </li>
+      <% end %>
+    </ul>
 
-  <ul class="reviews">
-    <% @reviews.each do |review| %>
-      <li>
-        <%= review.organization.name %>:
-        Score: <%= review.score%>
-        <%= review.text%>
-    <% end %>
-  </ul>
+    <ul class="reviews">
+      <h3>
+        My Reviews
+      </h3>
+      <% @reviews.each do |review| %>
+        <li>
+          <h4>
+          <%= review.organization.name %>:</br>
+          </h4>
+          <h6 style="text-indent: 25px;">
+            Score: <%= review.score%></br>
+            <h5 style="text-indent: 25px;">
+              <%= review.text%>
+            </h5>
+          </h6>
+      <% end %>
+    </ul>
+  </div>
 </content>

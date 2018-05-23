@@ -264,6 +264,22 @@ content li {
   margin: 30px;
   border-radius: 7px;
 }
-.error{
-  
+
+
+.my_profile ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.my_profile {
+  display: flex;
+  justify-content: space-around;
+}
+
+.my_profile ul{
+  width: 100%;
+}
+
+.my_profile li {
+  width: 100%;
 }
