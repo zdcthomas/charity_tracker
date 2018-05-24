@@ -90,6 +90,22 @@ describe "A visitor", type: :feature do
 
           expect(current_path).to eq(root_path)
         end
+        it 'should redirect to the sign up page with an error if the information is invalid' do
+          username = 'davebob'
+          password = 'password'
+          User.create!(username:username, password:password)
+
+          visit root_path
+          click_on 'Sign Up'
+
+          fill_in 'user[username]', with: username
+          fill_in 'user[password]', with: 'asdfkj'
+
+          click_on 'Submit'
+
+          expect(current_path).to eq(new_user_path)
+          expect(page).to have_content("Invalid Username or Password")
+        end
       end
     end
   end
