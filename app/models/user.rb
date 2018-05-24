@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :donations
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   enum role: [:default, :admin]
 end
